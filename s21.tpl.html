@@ -7,6 +7,40 @@
     <title>S-21</title>
 </head>
 <body>
+    <? 
+     Date.prototype.yyyymmdd = function() {
+         var mm = this.getMonth() + 1; // getMonth() is zero-based
+         var dd = this.getDate();
+         if (isNaN(this.getFullYear()))
+             return ""
+         
+         return [this.getFullYear(),
+                 (mm>9 ? '' : '0') + mm,
+                 (dd>9 ? '' : '0') + dd
+                ].join('-');
+    };    
+    
+    
+    for( var cnt=0; cnt < people_data.length; cnt ++) { 
+        var name = people_data[cnt][0]
+        var address = people_data[cnt][1]
+        var tel = people_data[cnt][2]
+        Logger.log(name)
+        var birth_day = people_data[cnt][3] != "" ? new Date(people_data[cnt][3]).yyyymmdd() : ""
+        if (typeof(people_data[cnt][4]) === "number")
+          var babtize_day = people_data[cnt][4]
+        else
+          var babtize_day = people_data[cnt][4] != "" ? new Date(people_data[cnt][4]).yyyymmdd() : ""
+        var is_sheep = people_data[cnt][5] == "x" ? "checked" : ""
+        var is_anointed = people_data[cnt][6] == "x" ? "checked" : ""
+        var is_elder = people_data[cnt][7] == "x" ? "checked" : ""
+        var is_service = people_data[cnt][8] == "x" ? "checked" : ""
+        var is_pioneer = people_data[cnt][9] == "x" ? "checked" : ""
+        var gender_male = people_data[cnt][10] == "m" ? "checked" : ""
+        var gender_female = people_data[cnt][10] == "k" ? "checked" : ""
+        if ( name == "") break;
+    
+    ?>
     <div class="card">
         <div class="title">
             <h2>ZBOROWE ZESTAWIENIE SPRAWOZDAŃ GŁOSICIELA</h2>
@@ -15,16 +49,16 @@
             <table class="person_details" cellspacing="0" cellpadding="0">
                 <tbody>
                 <tr>
-                    <td colspan="4">Imię i nazwisko</td>
+                    <td class="first_col">Imię i nazwisko</td><td colspan="3" class="name"><?= name ?></td>
                 </tr>
                 <tr>
-                    <td colspan="2">Data urodzenia</td><td class="option"><input type="checkbox" />Mężczyzna</td><td class="option"><input type="checkbox">Kobieta</td>
+                    <td class="first_col">Data urodzenia</td><td class="second_col"><?= birth_day ?></td><td class="option"><input type="checkbox" <?= gender_male ?> />Mężczyzna</td><td class="option"><input type="checkbox" <?= gender_female ?> >Kobieta</td>
                 </tr>
                 <tr>
-                    <td colspan="2">Data chrztu</td><td class="option"><input type="checkbox" />"Druga owca"</td><td class="option"><input type="checkbox" />Pomazaniec</td>
+                    <td class="first_col">Data chrztu</td><td class="second_col"><?= babtize_day ?><td class="option"><input type="checkbox" <?= is_sheep ?> />"Druga owca"</td><td class="option"><input type="checkbox" <?= is_anointed ?> />Pomazaniec</td>
                 </tr>
                 <tr>
-                    <td class="first_empty">&nbsp</td><td class="option"><input type="checkbox" />Starszy</td><td class="option"><input type="checkbox" />Sługa pomocniczy</td><td class="option"><input type="checkbox" />Pionier stały</td>
+                    <td class="first_col" colspan="2">&nbsp</td><td class="option"><input type="checkbox" <?= is_elder ?> />Starszy</td><td class="option"><input type="checkbox" <?= is_service ?> />Sługa pomocniczy</td><td class="option  last_col"><input type="checkbox" <?= is_pioneer ?> />Pionier stały</td>
                 </tr>
                 </tbody>
             </table>
@@ -43,8 +77,9 @@
                     </tr>
                 </thead>
                 <tbody>
+                <? for (var i =0; i < months_rows.length; i ++) { ?>
                     <tr>
-                        <td>&nbsp</td>
+                        <td><?= months_rows[i] ?></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -52,460 +87,12 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                <? } ?>
                 </tbody>
             </table>
         </div>
     </div>
-
-    <div class="card">
-        <div class="title">
-            <h2>ZBOROWE ZESTAWIENIE SPRAWOZDAŃ GŁOSICIELA</h2>
-        </div>
-        <div class="details">
-            <table class="person_details" cellspacing="0" cellpadding="0">
-                <tbody>
-                <tr>
-                    <td colspan="4">Imię i nazwisko</td>
-                </tr>
-                <tr>
-                    <td colspan="2">Data urodzenia</td><td class="option"><input type="checkbox" />Mężczyzna</td><td class="option"><input type="checkbox">Kobieta</td>
-                </tr>
-                <tr>
-                    <td colspan="2">Data chrztu</td><td class="option"><input type="checkbox" />"Druga owca"</td><td class="option"><input type="checkbox" />Pomazaniec</td>
-                </tr>
-                <tr>
-                    <td class="first_empty">&nbsp</td><td class="option"><input type="checkbox" />Starszy</td><td class="option"><input type="checkbox" />Sługa pomocniczy</td><td class="option"><input type="checkbox" />Pionier stały</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="monthly_data">
-            <table class="months">
-                <thead>
-                    <tr>
-                        <th class="year">Rok służbowy</th>
-                        <th>Publikacje</th>
-                        <th>Wyświetlone filmy</th>
-                        <th>Godziny</th>
-                        <th>Odwiedziny ponowne</th>
-                        <th>Studia biblijne</th>
-                        <th class="notes">Uwagi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="title">
-            <h2>ZBOROWE ZESTAWIENIE SPRAWOZDAŃ GŁOSICIELA</h2>
-        </div>
-        <div class="details">
-            <table class="person_details" cellspacing="0" cellpadding="0">
-                <tbody>
-                <tr>
-                    <td colspan="4">Imię i nazwisko</td>
-                </tr>
-                <tr>
-                    <td colspan="2">Data urodzenia</td><td class="option"><input type="checkbox" />Mężczyzna</td><td class="option"><input type="checkbox">Kobieta</td>
-                </tr>
-                <tr>
-                    <td colspan="2">Data chrztu</td><td class="option"><input type="checkbox" />"Druga owca"</td><td class="option"><input type="checkbox" />Pomazaniec</td>
-                </tr>
-                <tr>
-                    <td class="first_empty">&nbsp</td><td class="option"><input type="checkbox" />Starszy</td><td class="option"><input type="checkbox" />Sługa pomocniczy</td><td class="option"><input type="checkbox" />Pionier stały</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="monthly_data">
-            <table class="months">
-                <thead>
-                    <tr>
-                        <th class="year">Rok służbowy</th>
-                        <th>Publikacje</th>
-                        <th>Wyświetlone filmy</th>
-                        <th>Godziny</th>
-                        <th>Odwiedziny ponowne</th>
-                        <th>Studia biblijne</th>
-                        <th class="notes">Uwagi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+   
+    <? ;} ?>
 </body>
 </html>

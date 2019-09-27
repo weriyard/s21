@@ -4,14 +4,19 @@
     #content, #page {
         width: 100%;
         margin: 0;
+        padding: 0;
         float: none;
     }
-}
 
 @page {
-    margin: 22px 0 0 30px;
+    margin: 20px 0 0 30px;
 }
 
+div.card { page-break-inside:avoid;page-break-after:auto }
+
+}
+
+}
 
 @media all {
     .page-break {
@@ -54,12 +59,12 @@ tr, td {
 div.card {
     border: 1px dotted lightgrey;
     width: 585px;
-    height: 358px;
+    height: 359px;
 }
 
 div.card h2 {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 12px;
     font-size: 14px;
     margin-bottom: 2px;
 }
@@ -75,6 +80,20 @@ div.details table, div.monthly_data table {
     border-spacing: 0;
 }
 
+div.details table td.first_col {
+    width: 150px;
+}
+
+div.details table td.second_col {
+    width: 150px;
+    font-family: "Courier New", serif;
+}
+
+div.details table td.name {
+    text-transform: uppercase;
+    font-family: "Courier New", serif;
+}
+
 div.monthly_data table, div.monthly_data td {
     border: 1px solid #000000;
 }
@@ -84,9 +103,12 @@ div.monthly_data {
 }
 
 table.person_details td.option {
-    width: 150px;
+    width: 166px;
 }
 
+table.person_details td.last_col {
+    width: 120px;
+}
 
 table.person_details td.first_empty {
     width: 270px;
@@ -95,7 +117,7 @@ table.person_details td.first_empty {
 table.person_details td {
     font-weight: bold;
     font-size: 13px;
-    height: 16px;
+    height: 17px;
     margin: 0;
 }
 
@@ -125,6 +147,7 @@ table.months tbody td {
     padding: 1px 1px;
     height: 13px;
     font-size: 13px;
+    padding-left: 5px;
 }
 
 table.months thead th.notes {

@@ -7,13 +7,13 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Test-2') {
             steps {
                 sh 'echo "HURRAAAAAAAAAAAAAA"; exit 0'
             }
         }
 
-        stage('Test') {
+        stage('Test-4') {
             steps {
                 sh 'echo "HURRAAAAAAAAAAAAAA"; exit 0'
             }

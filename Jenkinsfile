@@ -14,11 +14,7 @@ pipeline {
         }
 
         stage('Test-4') {
-            steps {
-                sh 'echo "HURRAAAAAAAAAAAAAA"; exit 0'
-            }
-        }
-
+        
             steps {
                 echo 'Building..'
     
@@ -30,6 +26,10 @@ pipeline {
                     }
             }
         }
+
+
+
+}
 
 
     }

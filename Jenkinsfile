@@ -17,14 +17,15 @@ pipeline {
         
             steps {
                 echo 'Building..'
-    
-		    script {
-                    for(int i=0; i < 10; i++) {
-                        stage($i){
+
+	                  script {
+                    for(int i=0; i < list.size(); i++) {
+                        stage(list[i]){
                             echo "Element: $i"
                         }
                     }
-            }
+                }
+    
         }
 
 

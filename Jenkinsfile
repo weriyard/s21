@@ -3,10 +3,27 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'echo "HURRAAAAAAAAAAAAAA"; exit 1'
+                sh 'echo "HURRAAAAAAAAAAAAAA"; exit 0'
             }
         }
     }
+
+    stages {
+        stage('Test') {
+            steps {
+                sh 'echo "HURRAAAAAAAAAAAAAA"; exit 0'
+            }
+        }
+    }
+
+    stages {
+        stage('Test') {
+            steps {
+                sh 'echo "HURRAAAAAAAAAAAAAA"; exit 0'
+            }
+        }
+    }
+
     post {
         always {
             echo 'This will always run'

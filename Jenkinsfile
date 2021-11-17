@@ -20,7 +20,7 @@ pipeline {
     
 		    script {
                     for(int i=0; i < 10; i++) {
-                        stage(i){
+                        stage($i){
                             echo "Element: $i"
                         }
                     }

@@ -9,7 +9,7 @@ pipeline {
     }
 
     stages {
-        stage('Test') {
+        stage('Test 2') {
             steps {
                 sh 'echo "HURRAAAAAAAAAAAAAA"; exit 0'
             }
@@ -17,7 +17,7 @@ pipeline {
     }
 
     stages {
-        stage('Test') {
+        stage('Test 3') {
             steps {
                 sh 'echo "HURRAAAAAAAAAAAAAA"; exit 0'
             }

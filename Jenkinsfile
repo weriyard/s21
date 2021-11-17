@@ -19,6 +19,25 @@ pipeline {
             }
         }
 
+        stage('Build') {
+            steps {
+                echo 'Building..'
+    
+		    script {
+                    for(int i=0; i < 10; i++) {
+                        stage(list[i]){
+                            echo "Element: $i"
+                        }
+                    }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+
     }
 
 

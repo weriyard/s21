@@ -6,23 +6,21 @@ pipeline {
                 sh 'echo "HURRAAAAAAAAAAAAAA"; exit 0'
             }
         }
-    }
 
-    stages {
-        stage('Test 2') {
+        stage('Test') {
             steps {
                 sh 'echo "HURRAAAAAAAAAAAAAA"; exit 0'
             }
         }
-    }
 
-    stages {
-        stage('Test 3') {
+        stage('Test') {
             steps {
                 sh 'echo "HURRAAAAAAAAAAAAAA"; exit 0'
             }
         }
+
     }
+
 
     post {
         always {
